@@ -21,7 +21,7 @@ def compile_and_push_or_commit(repo_path, commit_message):
             repo.index.commit(commit_message)
 
             # Push changes to the remote repository
-            origin = repo.remote(name='origin')
+            origin = repo.remote(name='untitled-rogue-game')
             origin.push()
 
             print("Changes committed and pushed successfully.")
