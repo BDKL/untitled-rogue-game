@@ -9,7 +9,7 @@ def update_repo(repo_path):
         repo = git.Repo(repo_path)
 
         # Fetch changes from the remote repository
-        origin = repo.remote(name='untitled-rogue-game')
+        origin = repo.remote(name='origin')
         origin.fetch()
 
         # Merge changes
@@ -38,7 +38,7 @@ def compile_and_push_or_commit(repo_path, commit_message):
             repo.index.commit(commit_message)
 
             # Push changes to the repo
-            origin = repo.remote(name='untitled-rogue-game')
+            origin = repo.remote(name='origin')
             origin.push()
 
             print("Changes committed and pushed successfully.")
