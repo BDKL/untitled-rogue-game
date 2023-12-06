@@ -13,7 +13,7 @@ def update_repo(repo_path):
         origin.fetch()
 
         # Merge changes
-        repo.git.merge('untitled-rogue-game/master') 
+        repo.git.merge('origin/master') 
 
         print("Repository updated successfully.")
 
