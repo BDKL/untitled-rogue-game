@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://db62exjn2drbi"]
+
+[ext_resource type="Texture2D" uid="uid://bft442etegwnw" path="res://Personagem Jacare.png" id="1_psgeb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GDExample_2" type="GDExample_2" parent="."]
+position = Vector2(5.41462, 2.35939)
+texture = ExtResource("1_psgeb")
