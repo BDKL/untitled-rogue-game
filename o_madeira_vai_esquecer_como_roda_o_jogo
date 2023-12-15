@@ -3,6 +3,6 @@ qualquer alteração em código, arquivo, qualquer coisa, precisa recompilar E r
 nao usa o vscode pra cpp
 pra compilar vai na root do projeto e roda scons platform=linux e gg
 arquivo novo é em src
-assets é em demo
+assets é em demo(project)
 o dir godot-cpp faz nada, só precisou no início pra poder compilar pela primeira vez os bglh de cpp eu acho (o importante é que não precisa mais mexer nisso)
 importante: qualquer arquivo novo tem que colocar ele no register_tyoes.cpp que nem os gdexample e gdexample_2
