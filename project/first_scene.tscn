@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkwhbnj3gmdx7"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_p1dd7"]
+[ext_resource type="Script" path="res://player.gd" id="1_7ujf0"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tfgyk"]
 load_path = "res://.godot/imported/Personagem Jacare.png-c61a51ee55226c31705e3afd6412097c.ctex"
@@ -20,7 +20,7 @@ animations = [{
 size = Vector2(103, 132)
 
 [node name="Area2D" type="Area2D"]
-script = ExtResource("1_p1dd7")
+script = ExtResource("1_7ujf0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(369, 246)

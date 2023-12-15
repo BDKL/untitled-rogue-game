@@ -12,11 +12,14 @@ using namespace godot;
 class Player : public Area2D {
   GDCLASS(Player, Area2D);
 
-public:
-  void _ready();
-
 protected:
-  static void _bind_methods() {}
+    static void _bind_methods();
+
+public:
+    Player();
+    ~Player();
+
+    void start_player();
 };
 
 #endif
