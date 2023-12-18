@@ -15,7 +15,12 @@ class Player : public Node2D {
 
 private:
   Vector2 velocity;
+  Vector2 screen_size;
+  real_t y_position;
+  real_t x_position;
+  Vector2 overall_pos;
   double speed;
+  int health, buff, debuff;
 
 protected:
   static void _bind_methods();
@@ -26,6 +31,8 @@ public:
   void _process(double delta);
   void set_speed(const double speed);
   double get_speed() const;
+  int get_health();
+  void update_health(int buff, int debuff);
 };
 
 #endif // PLAYER_H

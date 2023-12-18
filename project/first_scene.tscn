@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkwhbnj3gmdx7"]
 
-[ext_resource type="Texture2D" uid="uid://b1ppsomapna0n" path="res://Personagem Jacare.png" id="1_b6ldy"]
 [ext_resource type="Texture2D" uid="uid://c8biiujoeu2e" path="res://Placeholder 1.png" id="2_k8q18"]
+[ext_resource type="Texture2D" uid="uid://bj83yffjp7tlr" path="res://NEGRO.png" id="2_m50ry"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(100, 80)
@@ -12,8 +12,8 @@ texture = ExtResource("2_k8q18")
 
 [node name="Player" type="Player" parent="Placeholder1"]
 speed = 100.0
-position = Vector2(-863, -463)
+position = Vector2(-1, 13)
 
 [node name="PersonagemJacare" type="Sprite2D" parent="Placeholder1/Player"]
-position = Vector2(-18, 8)
-texture = ExtResource("1_b6ldy")
+position = Vector2(5.00012, 47)
+texture = ExtResource("2_m50ry")
