@@ -1,34 +1,31 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <godot_cpp/classes/area2d.hpp>
 #include <godot_cpp/classes/animated_sprite2d.hpp>
+#include <godot_cpp/classes/area2d.hpp>
+#include <godot_cpp/classes/character_body2d.hpp>
 #include <godot_cpp/classes/collision_object2d.hpp>
 #include <godot_cpp/godot.hpp>
-#include <godot_cpp/classes/input.hpp>
+#include <godot_cpp/variant/vector2.hpp>
 
 using namespace godot;
 
-class Player : public Area2D {
-  GDCLASS(Player, Area2D);
+class Player : public Node2D {
+  GDCLASS(Player, Node2D);
 
 private:
-    float x_coord=0;
-    float y_coord=0;
+  Vector2 velocity;
+  double speed;
 
 protected:
-    static void _bind_methods();
+  static void _bind_methods();
 
 public:
-    Player();
-    ~Player();
-
-    void check_movement();
-    void move_up();
-    void move_left();
-    void move_down();
-    void move_right();
-
+  Player();
+  ~Player();
+  void _process(double delta);
+  void set_speed(const double speed);
+  double get_speed() const;
 };
 
 #endif // PLAYER_H
