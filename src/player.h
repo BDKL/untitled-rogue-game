@@ -5,13 +5,19 @@
 #include <godot_cpp/classes/area2d.hpp>
 #include <godot_cpp/classes/character_body2d.hpp>
 #include <godot_cpp/classes/collision_object2d.hpp>
+#include <godot_cpp/classes/image.hpp>
+#include <godot_cpp/classes/image_texture.hpp>
+#include <godot_cpp/classes/resource.hpp>
+#include <godot_cpp/classes/resource_loader.hpp>
+#include <godot_cpp/classes/sprite_frames.hpp>
+#include <godot_cpp/classes/texture2d.hpp>
 #include <godot_cpp/godot.hpp>
 #include <godot_cpp/variant/vector2.hpp>
 
 using namespace godot;
 
-class Player : public Node2D {
-  GDCLASS(Player, Node2D);
+class Player : public CharacterBody2D {
+  GDCLASS(Player, CharacterBody2D);
 
 private:
   Vector2 velocity;
@@ -21,6 +27,10 @@ private:
   Vector2 overall_pos;
   double speed;
   int health, buff, debuff;
+  bool animation_flag;
+  AnimatedSprite2D *sprite_handler;
+  SpriteFrames *frames;
+  ResourceLoader rsrc_loader;
 
 protected:
   static void _bind_methods();
