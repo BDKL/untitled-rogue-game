@@ -34,15 +34,25 @@ Player::Player() {
   Player::add_child(sprite_handler);
 
   // add new animation and remove default
-  frames->add_animation("fazuelen");
+  frames->add_animation("walking");
+  frames->add_animation("resting");
   frames->remove_animation("default");
 
   // load and add frames
-  frames->add_frame("fazuelen", rsrc_loader.load("res://L1.png", ""), 1, 0);
-  frames->add_frame("fazuelen", rsrc_loader.load("res://L2.png", ""), 1, 1);
+  frames->add_frame("walking",
+                    rsrc_loader.load("res://Jacare andandinho1.png", ""), 1, 0);
+  frames->add_frame("walking",
+                    rsrc_loader.load("res://Jacare andandinho2.png", ""), 1, 1);
+  frames->add_frame("walking",
+                    rsrc_loader.load("res://Jacare andandinho3.png", ""), 1, 2);
+  frames->add_frame("walking",
+                    rsrc_loader.load("res://Jacare andandinho4.png", ""), 1, 3);
+
+  frames->add_frame("resting",
+                    rsrc_loader.load("res://Jacare andandinho1.png", ""), 1, 0);
 
   // start animation loop
-  frames->set_animation_loop("fazuelen", true);
+  frames->set_animation_loop("walking", true);
   sprite_handler->set_sprite_frames(frames);
 }
 
@@ -60,11 +70,14 @@ void Player::_process(double delta) {
   // overall_pos = get_position();
 
   if (animation_flag == true) {
-
-    sprite_handler->play("fazuelen", 1, false);
+    sprite_handler->play("walking", 1, false);
+    animation_flag = false;
 
     UtilityFunctions::print("animation true");
     UtilityFunctions::print(frames->get_animation_names());
+  } else {
+    sprite_handler->pause();
+    sprite_handler->play("resting", 1, false);
   }
 
   if (input_singleton.is_action_pressed("d")) {
