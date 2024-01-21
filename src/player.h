@@ -25,9 +25,11 @@ private:
   real_t y_position;
   real_t x_position;
   Vector2 overall_pos;
-  double speed;
+  float speed;
+  float speedMult;
   int health, buff, debuff;
-  bool animation_flag;
+  bool walking_animation_flag;
+  bool attacking_animation_flag;
   AnimatedSprite2D *sprite_handler;
   SpriteFrames *frames;
   ResourceLoader rsrc_loader;
