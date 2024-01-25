@@ -94,12 +94,29 @@ Player::~Player() {
   // memdelete(frames);
 }
 
-void Player::_process(double delta) {
+void Player::_process(double delta) {  
   velocity = Vector2(0.0f, 0.0f);
-  Input &input_singleton = *Input::get_singleton();
+  Input &input_singleton = *Input::get_singleton(); 
   // x_position = get_position().x;
   // y_position = get_position().y;
   // overall_pos = get_position();
+  // UtilityFunctions::print(sprite_handler->is_playing());
+  // UtilityFunctions::print(c_anim);
+  // UtilityFunctions::print(sprite_handler->get_frame());
+
+  if (attacking_animation_flag == true) // this probably top 10 worst ways of doing this, there is something called Signals that AnimatedSprite2d emits which would be perfect for this, 
+                                        // and there is a lot of information about it, but I couldn't find how to capture the Signals in C++.
+  {
+    UtilityFunctions::print("gg");
+    if (sprite_handler->get_frame() == 7) //try not to cringe challenge
+    {
+      attacking_animation_flag = false;
+      
+    }
+    
+    
+  }else {
+  
   if (input_singleton.is_action_pressed("shift")) {
     speedMult = 10.0f;
   } else {
@@ -146,8 +163,9 @@ void Player::_process(double delta) {
   set_position(get_position() + (velocity * speed * delta));
 
   // attack handling
-  if (input_singleton.is_action_pressed("J")) {
+  if (input_singleton.is_action_just_pressed("J")) {
     sprite_handler->play("attacking", 4, false);
+    attacking_animation_flag = true;
   }
 
   // some idea for health management/gameplay
@@ -172,6 +190,7 @@ void Player::_process(double delta) {
     add here the logic so the player can't go beyond the screen size (there is a
     function for this called Math::clamp glhf)
   */
+  }
 }
 
 void Player::set_speed(const double speed) { this->speed = speed; }

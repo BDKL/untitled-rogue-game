@@ -17,7 +17,7 @@
 using namespace godot;
 
 class Player : public CharacterBody2D {
-  GDCLASS(Player, CharacterBody2D);
+  GDCLASS(Player, CharacterBody2D)
 
 private:
   Vector2 velocity;
@@ -30,7 +30,7 @@ private:
   float speedMult;
   int health, buff, debuff;
   bool walking_animation_flag;
-  bool attacking_animation_flag;
+  bool attacking_animation_flag = false;
   AnimatedSprite2D *sprite_handler;
   SpriteFrames *frames;
   ResourceLoader rsrc_loader;
