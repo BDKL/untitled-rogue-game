@@ -28,9 +28,10 @@ private:
   float speed;
   float base_speed;
   float speedMult;
+  int attack_lock;
   int health, buff, debuff;
   bool walking_animation_flag;
-  bool attacking_animation_flag = false;
+  bool attacking_animation_flag;
   AnimatedSprite2D *sprite_handler;
   SpriteFrames *frames;
   ResourceLoader rsrc_loader;

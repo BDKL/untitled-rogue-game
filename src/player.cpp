@@ -24,9 +24,11 @@ Player::Player() {
   health = 10;
   buff = 0;
   debuff = 0;
+  attacking_animation_flag = false;
   walking_animation_flag = false;
   base_speed = 1.0f;
   speedMult = 1.0f;
+  attack_lock = 0;
 
   // objects declarations
   sprite_handler = memnew(AnimatedSprite2D);
@@ -61,13 +63,13 @@ Player::Player() {
                     1, 0);
 
   // load and add frames to attacking animation
-  frames->add_frame("attacking", rsrc_loader.load("res://assets/F1.png", ""), 1,
+  frames->add_frame("attacking", rsrc_loader.load("res://assets/F1.png", ""), 2,
                     0);
-  frames->add_frame("attacking", rsrc_loader.load("res://assets/F2.png", ""), 1,
+  frames->add_frame("attacking", rsrc_loader.load("res://assets/F2.png", ""), 2,
                     1);
-  frames->add_frame("attacking", rsrc_loader.load("res://assets/F3.png", ""), 1,
+  frames->add_frame("attacking", rsrc_loader.load("res://assets/F3.png", ""), 2,
                     2);
-  frames->add_frame("attacking", rsrc_loader.load("res://assets/F4.png", ""), 1,
+  frames->add_frame("attacking", rsrc_loader.load("res://assets/F4.png", ""), 2,
                     3);
   frames->add_frame("attacking", rsrc_loader.load("res://assets/F5.png", ""), 1,
                     4);
@@ -84,7 +86,7 @@ Player::Player() {
 
   // start animation loop
   frames->set_animation_loop("walking", true);
-
+  frames->set_animation_loop("attacking", false);
   sprite_handler->set_sprite_frames(frames);
 }
 
@@ -107,11 +109,21 @@ void Player::_process(double delta) {
   if (attacking_animation_flag == true) // this probably top 10 worst ways of doing this, there is something called Signals that AnimatedSprite2d emits which would be perfect for this, 
                                         // and there is a lot of information about it, but I couldn't find how to capture the Signals in C++.
   {
-    if (sprite_handler->get_frame() == 7) //try not to cringe challenge
+    
+    if (sprite_handler->get_frame() == 3)
     {
-      attacking_animation_flag = false;
+      // sprite_handler->set_speed_scale(4);
+      velocity.x += 40;
+      set_position(get_position() + (velocity * speed * delta));
       
     }
+    if (sprite_handler->get_frame() == 9) //try not to cringe challenge
+    {
+      attacking_animation_flag = false;
+      attack_lock = 3;
+      // sprite_handler->set_speed_scale(1);
+      
+    } //for sure we need to convert all of this into a method of the player class later
 
   }else {
   
@@ -161,7 +173,7 @@ void Player::_process(double delta) {
   set_position(get_position() + (velocity * speed * delta));
 
   // attack handling
-  if (input_singleton.is_action_just_pressed("J")) {
+  if (input_singleton.is_action_just_pressed("J") && attack_lock == 0) {
     sprite_handler->play("attacking", 4, false);
     attacking_animation_flag = true;
   }
@@ -188,6 +200,11 @@ void Player::_process(double delta) {
     add here the logic so the player can't go beyond the screen size (there is a
     function for this called Math::clamp glhf)
   */
+  if (attack_lock > 0)
+  {
+    attack_lock -= 1;
+  }
+  
   }
 }
 
