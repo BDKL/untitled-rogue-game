@@ -94,9 +94,9 @@ Player::~Player() {
   // memdelete(frames);
 }
 
-void Player::_process(double delta) {  
+void Player::_process(double delta) {
   velocity = Vector2(0.0f, 0.0f);
-  Input &input_singleton = *Input::get_singleton(); 
+  Input &input_singleton = *Input::get_singleton();
   // x_position = get_position().x;
   // y_position = get_position().y;
   // overall_pos = get_position();
@@ -107,14 +107,12 @@ void Player::_process(double delta) {
   if (attacking_animation_flag == true) // this probably top 10 worst ways of doing this, there is something called Signals that AnimatedSprite2d emits which would be perfect for this, 
                                         // and there is a lot of information about it, but I couldn't find how to capture the Signals in C++.
   {
-    UtilityFunctions::print("gg");
     if (sprite_handler->get_frame() == 7) //try not to cringe challenge
     {
       attacking_animation_flag = false;
       
     }
-    
-    
+
   }else {
   
   if (input_singleton.is_action_pressed("shift")) {
