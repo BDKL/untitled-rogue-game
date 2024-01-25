@@ -26,6 +26,7 @@ private:
   real_t x_position;
   Vector2 overall_pos;
   float speed;
+  float base_speed;
   float speedMult;
   int health, buff, debuff;
   bool walking_animation_flag;

@@ -25,6 +25,7 @@ Player::Player() {
   buff = 0;
   debuff = 0;
   walking_animation_flag = false;
+  base_speed = 1.0f;
   speedMult = 1.0f;
 
   // objects declarations
@@ -118,25 +119,25 @@ void Player::_process(double delta) {
   // }
 
   if (input_singleton.is_action_pressed("d")) {
-    velocity.x += 1.0f * speedMult;
+    velocity.x += base_speed * speedMult;
     sprite_handler->play("walking", 1, false);
     // walking_animation_flag = true;
   }
 
   if (input_singleton.is_action_pressed("a")) {
-    velocity.x -= 1.0f * speedMult;
+    velocity.x -= base_speed * speedMult;
     sprite_handler->play("walking", 1, false);
     // walking_animation_flag = true;
   }
 
   if (input_singleton.is_action_pressed("w")) {
-    velocity.y -= 1.0f * speedMult;
+    velocity.y -= base_speed * speedMult;
     sprite_handler->play("walking", 1, false);
     // walking_animation_flag = true;
   }
 
   if (input_singleton.is_action_pressed("s")) {
-    velocity.y += 1.0f * speedMult;
+    velocity.y += base_speed * speedMult;
     sprite_handler->play("walking", 1, false);
     // walking_animation_flag = true;
   }
