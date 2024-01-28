@@ -117,7 +117,7 @@ void Player::_process(double delta) {
       set_position(get_position() + (velocity * speed * delta));
       
     }
-    if (sprite_handler->get_frame() == 9) //try not to cringe challenge
+    if (sprite_handler->get_frame() == 8) //try not to cringe challenge
     {
       attacking_animation_flag = false;
       attack_lock = 3;

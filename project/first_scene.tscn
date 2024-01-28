@@ -4,4 +4,4 @@
 position = Vector2(947, 438)
 
 [node name="Player" type="Player" parent="."]
-speed = 100.0
+speed = 200.0
