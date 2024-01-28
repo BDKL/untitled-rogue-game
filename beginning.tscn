@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1an733dgtbkg"]
+
+[ext_resource type="Texture2D" uid="uid://dmxb5ogrrtinl" path="res://project/assets/Jacare andandinho1.png" id="1_hvnh2"]
+[ext_resource type="Texture2D" uid="uid://xey87m8qigju" path="res://project/assets/Jacare andandinho2.png" id="2_hvh7y"]
+[ext_resource type="Texture2D" uid="uid://p54vx17opm2t" path="res://project/assets/Jacare andandinho3.png" id="3_re61d"]
+[ext_resource type="Texture2D" uid="uid://dbeej4p7emadp" path="res://project/assets/Jacare andandinho4.png" id="4_fjv2k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vsl3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hvnh2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hvh7y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_re61d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fjv2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f1du"]
+size = Vector2(61, 50)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(278, -45)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -13)
+sprite_frames = SubResource("SpriteFrames_vsl3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10.5, -18)
+shape = SubResource("RectangleShape2D_1f1du")
