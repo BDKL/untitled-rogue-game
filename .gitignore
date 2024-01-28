@@ -1,5 +1,2 @@
-godot-cpp
-.git
-demo/bin/libgdexample.linux.template_debug.x86_64.so
-demo/bin/libgdexample.windows.template_debug.x86_64.dll
-demo/bin/liblibgdexample.windows.template_debug.x86_64.a
+# Godot 4+ specific ignores
+.godot/
