@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4tteqdhbprsy"]
+
+[ext_resource type="Script" path="res://tmp_character.gd" id="1_45h2m"]
+
+[node name="character" type="CharacterBody2D"]
+position = Vector2(788, 472)
+script = ExtResource("1_45h2m")
+metadata/_edit_group_ = true

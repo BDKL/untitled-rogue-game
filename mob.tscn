@@ -1,0 +1,113 @@
+[gd_scene load_steps=24 format=3 uid="uid://kexl8mcw0cxl"]
+
+[ext_resource type="Script" path="res://mob.gd" id="1_l7wmv"]
+[ext_resource type="Texture2D" uid="uid://c0vg4nva3nykr" path="res://project/assets/crop/NEGRO RGB1.png" id="2_sd58a"]
+[ext_resource type="Texture2D" uid="uid://c0f2071c8v11r" path="res://project/assets/crop/NEGRO RGB2.png" id="3_h6ibh"]
+[ext_resource type="Texture2D" uid="uid://b15qj2arnqjyc" path="res://project/assets/crop/NEGRO RGB3.png" id="4_uolo1"]
+[ext_resource type="Texture2D" uid="uid://cl2c0feas4fmu" path="res://project/assets/crop/NEGRO RGB4.png" id="5_pw73s"]
+[ext_resource type="Texture2D" uid="uid://csr5r7fuydh6y" path="res://project/assets/crop/NEGRO RGB5.png" id="6_0g2uw"]
+[ext_resource type="Texture2D" uid="uid://u55imsi8pc32" path="res://project/assets/crop/NEGRO RGB6.png" id="7_d14lx"]
+[ext_resource type="Texture2D" uid="uid://1isej73pd5mh" path="res://project/assets/crop/NEGRO RGB7.png" id="8_qinec"]
+[ext_resource type="Texture2D" uid="uid://b378hsf7ycilm" path="res://project/assets/crop/NEGRO RGB8.png" id="9_x3i6u"]
+[ext_resource type="Texture2D" uid="uid://kc7hnw0u37mb" path="res://project/assets/crop/NEGRO RGB9.png" id="10_mdahp"]
+[ext_resource type="Texture2D" uid="uid://cifenncc81ov0" path="res://project/assets/crop/NEGRO RGB10.png" id="11_j6sos"]
+[ext_resource type="Texture2D" uid="uid://dhhe06dsq6s1t" path="res://project/assets/crop/NEGRO RGB11.png" id="12_ey15q"]
+[ext_resource type="Texture2D" uid="uid://utyxhr42wi0c" path="res://project/assets/crop/NEGRO RGB12.png" id="13_eap76"]
+[ext_resource type="Texture2D" uid="uid://rnp4u2w6a4wv" path="res://project/assets/crop/NEGRO RGB13.png" id="14_a1413"]
+[ext_resource type="Texture2D" uid="uid://c4s0gnm2hiry" path="res://project/assets/crop/NEGRO RGB14.png" id="15_yuolo"]
+[ext_resource type="Texture2D" uid="uid://b332v0bo743tc" path="res://project/assets/crop/NEGRO RGB15.png" id="16_ykmwc"]
+[ext_resource type="Texture2D" uid="uid://bhhgmujf0bqu5" path="res://project/assets/crop/NEGRO RGB16.png" id="17_2bcjq"]
+[ext_resource type="Texture2D" uid="uid://c2al67fkwp15s" path="res://project/assets/crop/NEGRO RGB17.png" id="18_hpebg"]
+[ext_resource type="Texture2D" uid="uid://yqnkp8nktkwa" path="res://project/assets/crop/NEGRO RGB18.png" id="19_p5yq8"]
+[ext_resource type="Texture2D" uid="uid://cbaoq462ehm3i" path="res://project/assets/crop/NEGRO RGB19.png" id="20_sq38v"]
+[ext_resource type="Texture2D" uid="uid://bupgpgx4g5ok8" path="res://project/assets/crop/NEGRO RGB20.png" id="21_qnw55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuxkw"]
+size = Vector2(260, 361)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ihhb4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sd58a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h6ibh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uolo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pw73s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0g2uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d14lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qinec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x3i6u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mdahp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j6sos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ey15q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eap76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_a1413")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yuolo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ykmwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2bcjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hpebg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_p5yq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_sq38v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qnw55")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Mob" type="CharacterBody2D"]
+position = Vector2(878, 467)
+script = ExtResource("1_l7wmv")
+metadata/_edit_group_ = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
+debug_path_custom_color = Color(0.333333, 1, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 4.5)
+shape = SubResource("RectangleShape2D_tuxkw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ihhb4")
+animation = &"idle"

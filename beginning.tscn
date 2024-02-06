@@ -33,6 +33,7 @@ size = Vector2(61, 50)
 position = Vector2(557, 378)
 script = ExtResource("1_kb4lp")
 speed = 200
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -13)

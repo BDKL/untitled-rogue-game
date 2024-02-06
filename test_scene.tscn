@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cimvbo4anye37"]
+
+[ext_resource type="PackedScene" uid="uid://d1an733dgtbkg" path="res://beginning.tscn" id="1_bx0ea"]
+[ext_resource type="PackedScene" uid="uid://kexl8mcw0cxl" path="res://mob.tscn" id="2_ir1el"]
+[ext_resource type="Texture2D" uid="uid://c304dpbesffvn" path="res://icon.svg" id="3_yxsje"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dt8sp"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(920, 50, 1556, 68, 1845, 274, 1919, 1082, 1138, 1004, 820, 1026, 547, 997, 225, 1054, 31, 1026, 163, 449)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="World" type="Node2D"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+position = Vector2(-4, -9)
+navigation_polygon = SubResource("NavigationPolygon_dt8sp")
+
+[node name="Player" parent="." instance=ExtResource("1_bx0ea")]
+position = Vector2(171, 235)
+
+[node name="Mob" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("2_ir1el")]
+position = Vector2(1697, 824)
+movement_target = NodePath("../Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(119, 963)
+
+[node name="Icon" type="Sprite2D" parent="Marker2D"]
+position = Vector2(5, -5)
+texture = ExtResource("3_yxsje")
