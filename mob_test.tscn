@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bm1ni0k6566kp"]
+
+[ext_resource type="Script" path="res://mob_test.gd" id="1_1e8ek"]
+[ext_resource type="PackedScene" uid="uid://kexl8mcw0cxl" path="res://mob.tscn" id="1_5qqsx"]
+
+[sub_resource type="Curve2D" id="Curve2D_t8gqe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 216, 246, 0, 0, 0, 0, 256, 856, 0, 0, 0, 0, 1324, 822, 0, 0, 0, 0, 1328, 252)
+}
+point_count = 4
+
+[node name="MobTest" type="Node"]
+script = ExtResource("1_1e8ek")
+mob_scene = ExtResource("1_5qqsx")
+
+[node name="Mob" parent="." instance=ExtResource("1_5qqsx")]
+position = Vector2(556, 289)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="MobPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_t8gqe")
+
+[node name="SpawnLocation" type="PathFollow2D" parent="MobPath"]
+position = Vector2(216, 246)
+rotation = 1.50532
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="MeshInstance2D"]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

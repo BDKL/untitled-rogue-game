@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed: float = 200.0
+@export var health: int = 10
 @export var movement_target: Node2D
 
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
@@ -16,7 +17,7 @@ func _ready():
 func actor_setup():
 	await get_tree().physics_frame
 	
-	set_movement_target(movement_target.position)
+	#set_movement_target(movement_target.position)
 
 func set_movement_target(target_point: Vector2):
 	navigation_agent.target_position = target_point

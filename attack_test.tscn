@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://k2vy3yubcox"]
+
+[ext_resource type="PackedScene" uid="uid://kexl8mcw0cxl" path="res://mob.tscn" id="1_cj02a"]
+[ext_resource type="PackedScene" uid="uid://d1an733dgtbkg" path="res://beginning.tscn" id="2_py3gb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mob" parent="." instance=ExtResource("1_cj02a")]
+
+[node name="Player" parent="." instance=ExtResource("2_py3gb")]
