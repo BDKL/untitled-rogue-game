@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://da512q3yar1ns"]
+
+[ext_resource type="Texture2D" uid="uid://d2vw4x0eeciho" path="res://assets/characters/Olho q voa.png" id="1_buoqp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_630on"]
+radius = 136.18
+
+[node name="Enemy" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_buoqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 21)
+shape = SubResource("CircleShape2D_630on")
